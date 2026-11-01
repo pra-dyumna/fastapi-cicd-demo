@@ -1,0 +1,24 @@
+from fastapi import FastAPI
+
+app = FastAPI(title="CI/CD Demo API")
+
+
+@app.get("/")
+def home():
+    return {
+        "message": "Welcome to CI/CD",
+        "status": "success"
+    }
+
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
+
+@app.get("/users/{user_id}")
+def get_user(user_id: int):
+    return {
+        "user_id": user_id,
+        "name": "Pradyumna"
+    }
